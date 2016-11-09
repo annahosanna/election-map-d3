@@ -39,10 +39,9 @@ window.onload = function() {
     .attr("d", path);
   });
 
-  function clicked(polygon) {
-
-    var x, y, k;
-    k = 1;
+  var clicked = function(polygon) {
+    var x, y, zoom;
+    zoom = 1;
     if (polygon && center !== polygon) {
       var centroid = path.centroid(polygon);
       x = centroid[0];
@@ -59,7 +58,7 @@ window.onload = function() {
 
     g.transition()
     .duration(750)
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-    .style("stroke-width", 1.5 / k + "px");
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + zoom + ")translate(" + -x + "," + -y + ")")
+    .style("stroke-width", 1.5 / zoom + "px");
   }
 }
