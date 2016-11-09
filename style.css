@@ -3,11 +3,11 @@
   pointer-events: all;
 }
 
-#states {
-  fill: #aaa;
+svg {
+  fill: steelblue;
 }
 
-#states .active {
+svg .active {
   fill: orange;
 }
 
