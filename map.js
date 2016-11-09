@@ -30,11 +30,15 @@ class Map {
 
   addData() {
     d3.json("us-states.json", function(json) {
+
       this.svg.selectAll("path")
       .data(json.features)
       .enter()
       .append("path")
       .attr("d", this.path)
+      .attr("data-name", function(d) {
+                      return d.properties.name
+                   })
       .attr("data-name", function(d) {
                       return d.properties.name
                    })
@@ -53,7 +57,17 @@ class Map {
   showInfo(selected) {
     const element = document.querySelector("#info")
     element.style.visibility = "visible"
-    let span = element.children[0]
-    span.innerText = selected.getAttribute('data-name')
+    const source   = document.querySelector("#state-info").innerHTML;
+    const template = Handlebars.compile(source);
+    const filtered =  this.lookup(selected.getAttribute("data-name"))
+    const context = filtered[0]
+    const html = template(context);
+    element.innerHTML = html;
+  }
+
+  lookup(name) {
+    return data.filter((item) => {
+      return item.state === name
+    })
   }
 }

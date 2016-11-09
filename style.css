@@ -1,12 +1,41 @@
-.background {
-  fill: none;
-  pointer-events: all;
-}
-
 #states {
-  fill: steelblue;
+  fill: #5CAB7D;
 }
 
 #states .active {
-  fill: orange;
+  fill: #4F86C6;
+}
+
+.flex {
+  display: flex;
+}
+
+#info {
+  width: 20%;
+  margin-top: 15px;
+}
+
+ul li {
+  list-style-type: none;
+  padding-bottom: 10px;
+}
+
+ul {
+  margin: 0px 0px 0px 15px;
+  padding: 0px;
+}
+
+h3 {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding-bottom: 5px;
+  margin: 0px;
+}
+
+.republican {
+  fill: red;
+}
+
+.democrat {
+  fill: blue;
 }

@@ -5,11 +5,26 @@
   <title>D3: Setting path fills</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script type="text/javascript" src="election-data.js"></script>
   <script type="text/javascript" src="map.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body>
-  <div id="info" style="visibility:hidden">Info: <span>number</span></div>
-  <div id="map"></div>
-</body>
+  <div class="flex">
+    <div id="info"></div>
+    <div id="map"></div>
+  </div>
+
+    <script id="state-info" type="text/x-handlebars-template">
+      <ul>
+        <li><h3>{{state}}</h3></li>
+        <li>Population: {{population}}</li>
+        <li>Electoral College Votes: {{electoral_college_votes}}</li>
+        <li>Democratic votes: {{democratic_votes}}</li>
+        <li>Republican votes: {{republican_votes}}</li>
+        <li>Other votes: {{other_votes}}</li>
+      <ul>
+    </script>
+  </body>
 </html>
