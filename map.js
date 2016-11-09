@@ -51,17 +51,16 @@ class Map {
     .classed("active", (polygon) => { return polygon === clicked; })
 
     const selected = this.svg.selectAll(".active")
-    this.showInfo(selected[0][0])
+    const matched = this.lookup(selected[0][0].getAttribute("data-name"))
+    this.showInfo(matched[0])
   }
 
-  showInfo(selected) {
+  showInfo(matched) {
     const element = document.querySelector("#info")
     element.style.visibility = "visible"
     const source   = document.querySelector("#state-info").innerHTML;
     const template = Handlebars.compile(source);
-    const filtered =  this.lookup(selected.getAttribute("data-name"))
-    const context = filtered[0]
-    const html = template(context);
+    const html = template(matched);
     element.innerHTML = html;
   }
 
