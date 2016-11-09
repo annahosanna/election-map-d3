@@ -24,7 +24,8 @@ class Map {
     return d3.select("body")
     .append("svg")
     .attr("width", this.width)
-    .attr("height", this.height);
+    .attr("height", this.height)
+    .attr("id", "states")
   }
 
   addData() {
@@ -39,25 +40,10 @@ class Map {
   }
 
   clicked(polygon) {
-    var x, y, zoom, center;
-    zoom = 1;
-    if (polygon && center !== polygon) {
-      var centroid = this.path.centroid(polygon);
-      x = centroid[0];
-      y = centroid[1];
-      center = polygon;
-    } else {
-      x = width / 2;
-      y = height / 2;
-      center = null;
-    }
+    let center = null;
+    if (polygon && center !== polygon) center = polygon;
 
     this.svg.selectAll("path")
     .classed("active", center && function(polygon) { return polygon === center; });
-
-    // this.svg.transition()
-    // .duration(750)
-    // .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")scale(" + zoom + ")translate(" + -x + "," + -y + ")")
-    // .style("stroke-width", 1.5 / zoom + "px");
   }
 }
