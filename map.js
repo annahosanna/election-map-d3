@@ -1,7 +1,7 @@
 window.onload = function() {
-  var width = 960,
-  height = 500,
-  centered;
+  var width = 960;
+  var height = 500;
+  var center;
 
   var projection = d3.geo.albersUsa()
   .scale(1070)
@@ -39,23 +39,23 @@ window.onload = function() {
     .attr("d", path);
   });
 
-  function clicked(d) {
+  function clicked(polygon) {
 
     var x, y, k;
     k = 1;
-    if (d && centered !== d) {
-      var centroid = path.centroid(d);
+    if (polygon && center !== polygon) {
+      var centroid = path.centroid(polygon);
       x = centroid[0];
       y = centroid[1];
-      centered = d;
+      center = polygon;
     } else {
       x = width / 2;
       y = height / 2;
-      centered = null;
+      center = null;
     }
 
     g.selectAll("path")
-    .classed("active", centered && function(d) { return d === centered; });
+    .classed("active", center && function(polygon) { return polygon === center; });
 
     g.transition()
     .duration(750)
