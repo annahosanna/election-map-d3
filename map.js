@@ -21,7 +21,7 @@ class Map {
   }
 
   createSVG() {
-    return d3.select("body")
+    return d3.select("#map")
     .append("svg")
     .attr("width", this.width)
     .attr("height", this.height)
@@ -35,15 +35,25 @@ class Map {
       .enter()
       .append("path")
       .attr("d", this.path)
-      .on("click", this.clicked.bind(this));
+      .attr("data-name", function(d) {
+                      return d.properties.name
+                   })
+      .on("click", this.setActive.bind(this));
     }.bind(this));
   }
 
-  clicked(polygon) {
-    let center = null;
-    if (polygon && center !== polygon) center = polygon;
-
+  setActive(clicked) {
     this.svg.selectAll("path")
-    .classed("active", center && function(polygon) { return polygon === center; });
+    .classed("active", (polygon) => { return polygon === clicked; })
+
+    const selected = this.svg.selectAll(".active")
+    this.showInfo(selected[0][0])
+  }
+
+  showInfo(selected) {
+    const element = document.querySelector("#info")
+    element.style.visibility = "visible"
+    let span = element.children[0]
+    span.innerText = selected.getAttribute('data-name')
   }
 }
