@@ -48,15 +48,30 @@ class Map {
 
   setActive(clicked) {
     this.svg.selectAll("path")
+    .attr('class','')
+
+    this.svg.selectAll("path")
     .classed("active", (polygon) => { return polygon === clicked; })
 
     const selected = this.svg.selectAll(".active")
-    const matched = this.lookup(selected[0][0].getAttribute("data-name"))
-    this.showInfo(matched[0])
+    const matched = this.lookup(selected[0][0].getAttribute("data-name"))[0]
+
+    const selectedClass = this.getClass(matched)
+
+    this.svg.selectAll("path")
+    .classed(selectedClass, (polygon) => { return polygon === clicked; })
+
+    this.showInfo(matched)
+  }
+
+  getClass(matched) {
+    const republican = matched.republican_votes
+    const democratic = matched.democratic_votes
+    return republican > democratic ? "republican" : "democratic"
   }
 
   showInfo(matched) {
-    const element = document.querySelector("#info")
+    const element = document.querySelector("#info div")
     element.style.visibility = "visible"
     const source   = document.querySelector("#state-info").innerHTML;
     const template = Handlebars.compile(source);

@@ -2,9 +2,9 @@
   fill: #5CAB7D;
 }
 
-#states .active {
+/*#states .active {
   fill: #4F86C6;
-}
+}*/
 
 .flex {
   display: flex;
@@ -13,6 +13,10 @@
 #info {
   width: 20%;
   margin-top: 15px;
+}
+
+#info p {
+  margin-left: 15px;
 }
 
 ul li {
@@ -25,6 +29,12 @@ ul {
   padding: 0px;
 }
 
+h1 {
+  text-align: center;
+  margin: 15px 0px 0px 0px;
+  padding: 0px;
+}
+
 h3 {
   border-bottom: 1px solid black;
   text-align: center;
@@ -34,8 +44,10 @@ h3 {
 
 .republican {
   fill: red;
+  color: red;
 }
 
-.democrat {
+.democratic {
   fill: blue;
+  color: blue;
 }
