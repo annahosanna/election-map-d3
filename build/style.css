@@ -51,9 +51,20 @@ h3 {
 }
 
 #ec-votes {
- width:100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-#ec-votes th {
-  text-align: left;
+#ec-votes td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#ec-votes tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#ec-votes caption {
+  margin: 15px 0px;
 }
