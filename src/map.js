@@ -1,11 +1,11 @@
-const Handlebars = require('handlebars')
 const d3 = require('d3')
 
 class Map {
-  constructor({width, height, scale}) {
+  constructor({width, height, scale, observers}) {
     this.width = width
     this.height = height
     this.scale = scale
+    this.observers = observers;
 
     this.projection = this.createProjection()
     this.path = this.createPath()
@@ -19,8 +19,8 @@ class Map {
 
   createProjection() {
     return d3.geoAlbersUsa()
-      .translate([this.width/2, this.height/2])
-      .scale([this.scale])
+    .translate([this.width/2, this.height/2])
+    .scale([this.scale])
   }
 
   createSVG() {
@@ -40,13 +40,19 @@ class Map {
       .append("path")
       .attr("d", this.path)
       .attr("data-name", function(d) {
-                      return d.properties.name
-                   })
+        return d.properties.name
+      })
       .attr("data-name", function(d) {
-                      return d.properties.name
-                   })
+        return d.properties.name
+      })
       .on("click", this.setActive.bind(this))
     }.bind(this))
+  }
+
+  notifyObservers(matched) {
+    for(const observer of this.observers){
+      observer.notify(matched);
+    }
   }
 
   setActive(clicked) {
@@ -64,22 +70,13 @@ class Map {
     this.svg.selectAll("path")
     .classed(selectedClass, (polygon) => { return polygon === clicked })
 
-    this.showInfo(matched)
+    this.notifyObservers(matched)
   }
 
   getClass(matched) {
     const republican = matched.republican_votes
     const democratic = matched.democratic_votes
     return republican > democratic ? "republican" : "democratic"
-  }
-
-  showInfo(matched) {
-    const element = document.querySelector("#info div")
-    element.style.visibility = "visible"
-    const source   = document.querySelector("#state-info").innerHTML
-    const template = Handlebars.compile(source)
-    const html = template(matched)
-    element.innerHTML = html
   }
 
   lookup(name) {
