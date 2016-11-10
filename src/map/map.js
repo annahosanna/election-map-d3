@@ -1,5 +1,7 @@
 const d3 = require('d3')
+const usStates = require('../data/us-states')
 
+console.log(usStates)
 class Map {
   
   constructor({width, height, scale, events}) {
@@ -33,10 +35,8 @@ class Map {
   }
 
   addData() {
-    //weird, this has to be in the build folder - sad
-    d3.json("./data/us-states.json", function(json) {
       this.svg.selectAll("path")
-      .data(json.features)
+      .data(usStates.features)
       .enter()
       .append("path")
       .style("stroke", "#eee")
@@ -46,7 +46,6 @@ class Map {
         return d.properties.name
       })
       .on("click", this.handleClick.bind(this))
-    }.bind(this))
   }
 
   handleClick(clicked) {
