@@ -1,6 +1,7 @@
 const d3 = require('d3')
 
 class Map {
+  
   constructor({width, height, scale, events}) {
     this.width = width
     this.height = height

@@ -2,23 +2,15 @@ const election_data = require('./data/election-data')
 
 class MapEvents {
 
-  constructor({observers}) {
+  constructor({observers, classes}) {
     this.observers = observers
+    this.classes = classes
   }
 
   notifyObservers(matched) {
     for(const observer of this.observers){
       observer.notify(matched);
     }
-  }
-
-  clearClasses(map) {
-    map.svg.selectAll("path").attr('class','')
-  }
-
-  addActiveClass(map, clicked) {
-    map.svg.selectAll("path")
-    .classed("active", (polygon) => { return polygon === clicked })
   }
 
   findSelected(map) {
@@ -28,23 +20,14 @@ class MapEvents {
   }
 
   click(clicked, map) {
-    this.clearClasses(map)
-
-    this.addActiveClass(map, clicked)
+    this.classes.clear(map)
+    this.classes.makeActive(map, clicked)
 
     const matched = this.findSelected(map)
-    const selectedClass = this.getClass(matched)
 
-    map.svg.selectAll("path")
-    .classed(selectedClass, (polygon) => { return polygon === clicked })
+    this.classes.setClassByVotes({map, clicked, matched})
 
     this.notifyObservers(matched)
-  }
-
-  getClass(matched) {
-    const republican = matched.republican_votes
-    const democratic = matched.democratic_votes
-    return republican > democratic ? "republican" : "democratic"
   }
 
   lookup(name) {
