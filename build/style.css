@@ -8,6 +8,7 @@ body {
 
 .flex {
   display: flex;
+  justify-content: center;
 }
 
 #info {
@@ -27,7 +28,7 @@ ul {
 
 h1 {
   text-align: center;
-  margin: 15px 0px 0px 0px;
+  margin: 15px 0px;
   padding: 0px;
   font-family: 'Cinzel', serif;
 }
