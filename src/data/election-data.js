@@ -1,6 +1,5 @@
-module.exports = [
-  {
-    "state": "Alabama",
+module.exports = {
+  "Alabama": {
     "population": 4858979,
     "electoral_college_votes": 9,
     "democratic_votes": 718084,
@@ -14,8 +13,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 8
   },
-  {
-    "state": "Alaska",
+  "Alaska": {
     "population": 738432,
     "electoral_college_votes": 3,
     "democratic_votes": 92013,
@@ -29,8 +27,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 1
   },
-  {
-    "state": "Arizona",
+  "Arizona": {
     "population": 6828065,
     "electoral_college_votes": 11,
     "democratic_votes": 864438,
@@ -44,8 +41,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 11
   },
-  {
-    "state": "Arkansas",
+  "Arkansas": {
     "population": 2978204,
     "electoral_college_votes": 6,
     "democratic_votes": 378729,
@@ -59,8 +55,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 5
   },
-  {
-    "state": "California",
+  "California": {
     "population": 39144818,
     "electoral_college_votes": 55,
     "democratic_votes": 5481885,
@@ -74,8 +69,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 66,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Colorado",
+  "Colorado": {
     "population": 5456574,
     "electoral_college_votes": 9,
     "democratic_votes": 1126384,
@@ -89,8 +83,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 9,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Connecticut",
+  "Connecticut": {
     "population": 3590886,
     "electoral_college_votes": 7,
     "democratic_votes": 823360,
@@ -104,8 +97,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 6,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Delaware",
+  "Delaware": {
     "population": 945934,
     "electoral_college_votes": 3,
     "democratic_votes": 235581,
@@ -119,8 +111,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 2,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Florida",
+  "Florida": {
     "population": 20271272,
     "electoral_college_votes": 29,
     "democratic_votes": 4485745,
@@ -134,8 +125,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 34
   },
-  {
-    "state": "Georgia",
+  "Georgia": {
     "population": 10214860,
     "electoral_college_votes": 16,
     "democratic_votes": 1837300,
@@ -149,8 +139,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 17
   },
-  {
-    "state": "Hawaii",
+  "Hawaii": {
     "population": 1431603,
     "electoral_college_votes": 4,
     "democratic_votes": 251853,
@@ -164,8 +153,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 2,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Idaho",
+  "Idaho": {
     "population": 1654930,
     "electoral_college_votes": 4,
     "democratic_votes": 189677,
@@ -179,8 +167,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 3
   },
-  {
-    "state": "Illinois",
+  "Illinois": {
     "population": 12859995,
     "electoral_college_votes": 20,
     "democratic_votes": 2976534,
@@ -194,8 +181,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 22,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Indiana",
+  "Indiana": {
     "population": 6619680,
     "electoral_college_votes": 11,
     "democratic_votes": 1029127,
@@ -209,8 +195,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 11
   },
-  {
-    "state": "Iowa",
+  "Iowa": {
     "population": 3123899,
     "electoral_college_votes": 6,
     "democratic_votes": 650790,
@@ -224,8 +209,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 5
   },
-  {
-    "state": "Kansas",
+  "Kansas": {
     "population": 2911641,
     "electoral_college_votes": 6,
     "democratic_votes": 414592,
@@ -239,8 +223,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 5
   },
-  {
-    "state": "Kentucky",
+  "Kentucky": {
     "population": 4425092,
     "electoral_college_votes": 8,
     "democratic_votes": 628834,
@@ -254,8 +237,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 7
   },
-  {
-    "state": "Louisiana",
+  "Louisiana": {
     "population": 4670724,
     "electoral_college_votes": 8,
     "democratic_votes": 799535,
@@ -269,8 +251,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 8
   },
-  {
-    "state": "Maine",
+  "Maine": {
     "population": 1329328,
     "electoral_college_votes": 4,
     "democratic_votes": 350832,
@@ -284,8 +265,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 2,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Maryland",
+  "Maryland": {
     "population": 6006401,
     "electoral_college_votes": 10,
     "democratic_votes": 1497951,
@@ -299,8 +279,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 10,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Massachusetts",
+  "Massachusetts": {
     "population": 6794422,
     "electoral_college_votes": 11,
     "democratic_votes": 1964433,
@@ -314,8 +293,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 11,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Michigan",
+  "Michigan": {
     "population": 9922576,
     "electoral_college_votes": 16,
     "democratic_votes": 2267373,
@@ -329,8 +307,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 17
   },
-  {
-    "state": "Minnesota",
+  "Minnesota": {
     "population": 5489594,
     "electoral_college_votes": 10,
     "democratic_votes": 1363745,
@@ -344,8 +321,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 9,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Mississippi",
+  "Mississippi": {
     "population": 2992333,
     "electoral_college_votes": 6,
     "democratic_votes": 462139,
@@ -359,8 +335,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 5
   },
-  {
-    "state": "Missouri",
+  "Missouri": {
     "population": 6083672,
     "electoral_college_votes": 10,
     "democratic_votes": 1054889,
@@ -374,8 +349,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 10
   },
-  {
-    "state": "Montana",
+  "Montana": {
     "population": 1032949,
     "electoral_college_votes": 3,
     "democratic_votes": 166985,
@@ -389,8 +363,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 2
   },
-  {
-    "state": "Nebraska",
+  "Nebraska": {
     "population": 1896190,
     "electoral_college_votes": 5,
     "democratic_votes": 273858,
@@ -404,8 +377,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 3
   },
-  {
-    "state": "Nevada",
+  "Nevada": {
     "population": 2890845,
     "electoral_college_votes": 6,
     "democratic_votes": 537753,
@@ -419,8 +391,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 5,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "New Hampshire",
+  "New Hampshire": {
     "population": 1330608,
     "electoral_college_votes": 4,
     "democratic_votes": 346816,
@@ -434,8 +405,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 2,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "New Jersey",
+  "New Jersey": {
     "population": 8958013,
     "electoral_college_votes": 14,
     "democratic_votes": 1964947,
@@ -449,8 +419,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 15,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "New Mexico",
+  "New Mexico": {
     "population": 2085109,
     "electoral_college_votes": 5,
     "democratic_votes": 380724,
@@ -464,8 +433,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 3,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "New York",
+  "New York": {
     "population": 19795791,
     "electoral_college_votes": 29,
     "democratic_votes": 4142719,
@@ -479,8 +447,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 33,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "North Carolina",
+  "North Carolina": {
     "population": 10042802,
     "electoral_college_votes": 15,
     "democratic_votes": 2162074,
@@ -494,8 +461,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 17
   },
-  {
-    "state": "North Dakota",
+  "North Dakota": {
     "population": 756927,
     "electoral_college_votes": 3,
     "democratic_votes": 93526,
@@ -509,8 +475,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 1
   },
-  {
-    "state": "Ohio",
+  "Ohio": {
     "population": 11613423,
     "electoral_college_votes": 18,
     "democratic_votes": 2317001,
@@ -524,8 +489,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 19
   },
-  {
-    "state": "Oklahoma",
+  "Oklahoma": {
     "population": 3911338,
     "electoral_college_votes": 7,
     "democratic_votes": 419788,
@@ -539,8 +503,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 7
   },
-  {
-    "state": "Oregon",
+  "Oregon": {
     "population": 4028977,
     "electoral_college_votes": 7,
     "democratic_votes": 919591,
@@ -554,8 +517,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 7,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Pennsylvania",
+  "Pennsylvania": {
     "population": 12802503,
     "electoral_college_votes": 20,
     "democratic_votes": 2844705,
@@ -569,8 +531,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 21
   },
-  {
-    "state": "Rhode Island",
+  "Rhode Island": {
     "population": 1056298,
     "electoral_college_votes": 4,
     "democratic_votes": 225445,
@@ -584,8 +545,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 2,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "South Carolina",
+  "South Carolina": {
     "population": 4896146,
     "electoral_college_votes": 9,
     "democratic_votes": 849469,
@@ -599,8 +559,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 8
   },
-  {
-    "state": "South Dakota",
+  "South Dakota": {
     "population": 858469,
     "electoral_college_votes": 3,
     "democratic_votes": 117442,
@@ -614,8 +573,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 1
   },
-  {
-    "state": "Tennessee",
+  "Tennessee": {
     "population": 6600299,
     "electoral_college_votes": 11,
     "democratic_votes": 865693,
@@ -629,8 +587,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 11
   },
-  {
-    "state": "Texas",
+  "Texas": {
     "population": 27469114,
     "electoral_college_votes": 38,
     "democratic_votes": 3852923,
@@ -644,8 +601,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 46
   },
-  {
-    "state": "Utah",
+  "Utah": {
     "population": 2995919,
     "electoral_college_votes": 6,
     "democratic_votes": 217820,
@@ -659,8 +615,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 5
   },
-  {
-    "state": "Vermont",
+  "Vermont": {
     "population": 626042,
     "electoral_college_votes": 3,
     "democratic_votes": 178072,
@@ -674,8 +629,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 1,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Virginia",
+  "Virginia": {
     "population": 8382993,
     "electoral_college_votes": 13,
     "democratic_votes": 1916845,
@@ -689,8 +643,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 14,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Washington",
+  "Washington": {
     "population": 7170351,
     "electoral_college_votes": 12,
     "democratic_votes": 1118772,
@@ -704,8 +657,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 12,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "Washington DC",
+  "Washington DC": {
     "population": 672228,
     "electoral_college_votes": 3,
     "democratic_votes": 260223,
@@ -719,8 +671,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 1,
     "adjusted_republican_electoral_college_votes": 0
   },
-  {
-    "state": "West Virginia",
+  "West Virginia": {
     "population": 1844128,
     "electoral_college_votes": 5,
     "democratic_votes": 187457,
@@ -734,8 +685,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 3
   },
-  {
-    "state": "Wisconsin",
+  "Wisconsin": {
     "population": 5771337,
     "electoral_college_votes": 10,
     "democratic_votes": 1382210,
@@ -749,8 +699,7 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 10
   },
-  {
-    "state": "Wyoming",
+  "Wyoming": {
     "population": 586107,
     "electoral_college_votes": 3,
     "democratic_votes": 55949,
@@ -764,4 +713,4 @@ module.exports = [
     "adjusted_democratic_electoral_college_votes": 0,
     "adjusted_republican_electoral_college_votes": 1
   }
-]
+}

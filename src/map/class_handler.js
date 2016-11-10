@@ -18,6 +18,9 @@ class MapClassHandler {
   classByVotes(matched) {
     const republican = matched.republican_votes
     const democratic = matched.democratic_votes
+    console.log(matched)
+    console.log(republican)
+    console.log(democratic)
     return republican > democratic ? "republican" : "democratic"
   }
 

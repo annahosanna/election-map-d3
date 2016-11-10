@@ -3,11 +3,13 @@ const usStates = require('../data/us-states')
 
 class Map {
   
-  constructor({width, height, scale, events}) {
+  constructor({width, height, scale, events, classes, statsSearch}) {
     this.width = width
     this.height = height
     this.scale = scale
     this.events = events
+    this.classes = classes
+    this.statsSearch = statsSearch
 
     this.projection = this.createProjection()
     this.path = this.createPath()
@@ -38,6 +40,10 @@ class Map {
       .data(usStates.features)
       .enter()
       .append("path")
+      .attr('class', (d) => {
+        const matched = this.statsSearch.stateByName(d.properties.name)
+        return this.classes.classByVotes(matched)
+      })
       .style("stroke", "#eee")
       .style("stroke-width", "1")
       .attr("d", this.path)

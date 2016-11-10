@@ -4,9 +4,7 @@ class StatsSearch {
   }
 
   stateByName(name) {
-    return this.data.filter((item) => {
-      return item.state === name
-    })
+    return this.data[name]
   }
 }
 

@@ -19,11 +19,11 @@ class MapEvents {
   }
 
   click(clicked, map) {
-    this.classes.reset(map)
-    this.classes.makeActive(map, clicked)
+    //this.classes.reset(map)
+    //this.classes.makeActive(map, clicked)
 
     const matched = this.findSelected(map)
-    this.classes.setClassByVotes({map, clicked, matched})
+    //this.classes.setClassByVotes({map, clicked, matched})
 
     this.notifyObservers(matched)
   }
