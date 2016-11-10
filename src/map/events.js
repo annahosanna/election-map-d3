@@ -19,7 +19,7 @@ class MapEvents {
   }
 
   click(clicked, map) {
-    this.classes.clear(map)
+    this.classes.reset(map)
     this.classes.makeActive(map, clicked)
 
     const matched = this.findSelected(map)

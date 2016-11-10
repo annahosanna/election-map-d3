@@ -1,6 +1,6 @@
 class MapClassHandler {
 
-  clear(map) {
+  reset(map) {
     map.svg.selectAll("path").attr('class','')
   }
 
