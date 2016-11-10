@@ -12,11 +12,8 @@ body {
 
 #info {
   width: 20%;
-  margin-top: 15px;
-}
-
-#info p {
-  margin-left: 15px;
+  margin: 0px;
+  padding-left: 15px;
 }
 
 ul li {
@@ -25,7 +22,6 @@ ul li {
 }
 
 ul {
-  margin: 0px 0px 0px 15px;
   padding: 0px;
 }
 
