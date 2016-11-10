@@ -56,7 +56,6 @@
 
 	const Handlebars = __webpack_require__(2)
 	const d3 = __webpack_require__(3)
-	console.log(d3)
 	
 	class Map {
 	  constructor({width, height, scale}) {
@@ -77,7 +76,7 @@
 	  createProjection() {
 	    return d3.geoAlbersUsa()
 	      .translate([this.width/2, this.height/2])
-	      .scale([this.scale]);
+	      .scale([this.scale])
 	  }
 	
 	  createSVG() {
@@ -146,7 +145,7 @@
 	  }
 	}
 	
-	module.exports = Map;
+	module.exports = Map
 
 /***/ },
 /* 2 */

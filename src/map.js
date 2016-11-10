@@ -1,6 +1,5 @@
 const Handlebars = require('handlebars')
 const d3 = require('d3')
-console.log(d3)
 
 class Map {
   constructor({width, height, scale}) {
@@ -21,7 +20,7 @@ class Map {
   createProjection() {
     return d3.geoAlbersUsa()
       .translate([this.width/2, this.height/2])
-      .scale([this.scale]);
+      .scale([this.scale])
   }
 
   createSVG() {
@@ -90,4 +89,4 @@ class Map {
   }
 }
 
-module.exports = Map;
+module.exports = Map
