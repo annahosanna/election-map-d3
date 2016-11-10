@@ -2,9 +2,9 @@
   fill: #5CAB7D;
 }
 
-/*#states .active {
-  fill: #4F86C6;
-}*/
+body {
+  font-family: 'Raleway', sans-serif;
+}
 
 .flex {
   display: flex;
@@ -33,6 +33,7 @@ h1 {
   text-align: center;
   margin: 15px 0px 0px 0px;
   padding: 0px;
+  font-family: 'Cinzel', serif;
 }
 
 h3 {

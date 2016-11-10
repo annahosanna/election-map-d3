@@ -1,7 +1,6 @@
 const d3 = require('d3')
 const usStates = require('../data/us-states')
 
-console.log(usStates)
 class Map {
   
   constructor({width, height, scale, events}) {

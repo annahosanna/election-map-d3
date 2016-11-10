@@ -70,7 +70,6 @@
 	const d3 = __webpack_require__(2)
 	const usStates = __webpack_require__(11)
 	
-	console.log(usStates)
 	class Map {
 	  
 	  constructor({width, height, scale, events}) {
