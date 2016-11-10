@@ -44,10 +44,10 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	const Map = __webpack_require__(1)
-	const MapEvents = __webpack_require__(3)
+	const Map = __webpack_require__(12)
+	const MapEvents = __webpack_require__(11)
 	const InfoView = __webpack_require__(5)
-	const MapClassHandler = __webpack_require__(7)
+	const MapClassHandler = __webpack_require__(10)
 	const StatsSearch = __webpack_require__(9)
 	const election_data = __webpack_require__(4)
 	
@@ -64,70 +64,7 @@
 	}
 
 /***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	const d3 = __webpack_require__(2)
-	
-	class Map {
-	  
-	  constructor({width, height, scale, events}) {
-	    this.width = width
-	    this.height = height
-	    this.scale = scale
-	    this.events = events
-	
-	    this.projection = this.createProjection()
-	    this.path = this.createPath()
-	    this.svg = this.createSVG()
-	    this.addData()
-	  }
-	
-	  createPath() {
-	    return d3.geoPath().projection(this.projection)
-	  }
-	
-	  createProjection() {
-	    return d3.geoAlbersUsa()
-	    .translate([this.width/2, this.height/2])
-	    .scale([this.scale])
-	  }
-	
-	  createSVG() {
-	    return d3.select("#map")
-	    .append("svg")
-	    .attr("width", this.width)
-	    .attr("height", this.height)
-	    .attr("id", "states")
-	  }
-	
-	  addData() {
-	    //weird, this has to be in the build folder - sad
-	    d3.json("./data/us-states.json", function(json) {
-	      this.svg.selectAll("path")
-	      .data(json.features)
-	      .enter()
-	      .append("path")
-	      .attr("d", this.path)
-	      .attr("data-name", function(d) {
-	        return d.properties.name
-	      })
-	      .attr("data-name", function(d) {
-	        return d.properties.name
-	      })
-	      .on("click", this.handleClick.bind(this))
-	    }.bind(this))
-	  }
-	
-	  handleClick(clicked) {
-	    this.events.click(clicked, this)
-	  }
-	
-	}
-	
-	module.exports = Map
-
-/***/ },
+/* 1 */,
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -16517,43 +16454,7 @@
 
 
 /***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	class MapEvents {
-	
-	  constructor({observers, classes, statsSearch}) {
-	    this.observers = observers
-	    this.classes = classes
-	    this.statsSearch = statsSearch
-	  }
-	
-	  notifyObservers(matched) {
-	    for(const observer of this.observers){
-	      observer.notify(matched);
-	    }
-	  }
-	
-	  findSelected(map) {
-	    const selected = map.svg.selectAll(".active")._groups
-	    const matched = this.statsSearch.stateByName(selected[0][0].getAttribute("data-name"))
-	    return matched[0]
-	  }
-	
-	  click(clicked, map) {
-	    this.classes.clear(map)
-	    this.classes.makeActive(map, clicked)
-	
-	    const matched = this.findSelected(map)
-	    this.classes.setClassByVotes({map, clicked, matched})
-	
-	    this.notifyObservers(matched)
-	  }
-	}
-	
-	module.exports = MapEvents
-
-/***/ },
+/* 3 */,
 /* 4 */
 /***/ function(module, exports) {
 
@@ -17024,7 +16925,27 @@
 	d.push(e),this.push(this.source.functionCall("container.invokePartial","",d))},assignToHash:function(a){var b=this.popStack(),c=void 0,d=void 0,e=void 0;this.trackIds&&(e=this.popStack()),this.stringParams&&(d=this.popStack(),c=this.popStack());var f=this.hash;c&&(f.contexts[a]=c),d&&(f.types[a]=d),e&&(f.ids[a]=e),f.values[a]=b},pushId:function(a,b,c){"BlockParam"===a?this.pushStackLiteral("blockParams["+b[0]+"].path["+b[1]+"]"+(c?" + "+JSON.stringify("."+c):"")):"PathExpression"===a?this.pushString(b):"SubExpression"===a?this.pushStackLiteral("true"):this.pushStackLiteral("null")},compiler:e,compileChildren:function(a,b){for(var c=a.children,d=void 0,e=void 0,f=0,g=c.length;g>f;f++){d=c[f],e=new this.compiler;var h=this.matchExistingProgram(d);null==h?(this.context.programs.push(""),h=this.context.programs.length,d.index=h,d.name="program"+h,this.context.programs[h]=e.compile(d,b,this.context,!this.precompile),this.context.decorators[h]=e.decorators,this.context.environments[h]=d,this.useDepths=this.useDepths||e.useDepths,this.useBlockParams=this.useBlockParams||e.useBlockParams):(d.index=h,d.name="program"+h,this.useDepths=this.useDepths||d.useDepths,this.useBlockParams=this.useBlockParams||d.useBlockParams)}},matchExistingProgram:function(a){for(var b=0,c=this.context.environments.length;c>b;b++){var d=this.context.environments[b];if(d&&d.equals(a))return b}},programExpression:function(a){var b=this.environment.children[a],c=[b.index,"data",b.blockParams];return(this.useBlockParams||this.useDepths)&&c.push("blockParams"),this.useDepths&&c.push("depths"),"container.program("+c.join(", ")+")"},useRegister:function(a){this.registers[a]||(this.registers[a]=!0,this.registers.list.push(a))},push:function(a){return a instanceof d||(a=this.source.wrap(a)),this.inlineStack.push(a),a},pushStackLiteral:function(a){this.push(new d(a))},pushSource:function(a){this.pendingContent&&(this.source.push(this.appendToBuffer(this.source.quotedString(this.pendingContent),this.pendingLocation)),this.pendingContent=void 0),a&&this.source.push(a)},replaceStack:function(a){var b=["("],c=void 0,e=void 0,f=void 0;if(!this.isInline())throw new j["default"]("replaceStack on non-inline");var g=this.popStack(!0);if(g instanceof d)c=[g.value],b=["(",c],f=!0;else{e=!0;var h=this.incrStack();b=["((",this.push(h)," = ",g,")"],c=this.topStack()}var i=a.call(this,c);f||this.popStack(),e&&this.stackSlot--,this.push(b.concat(i,")"))},incrStack:function(){return this.stackSlot++,this.stackSlot>this.stackVars.length&&this.stackVars.push("stack"+this.stackSlot),this.topStackName()},topStackName:function(){return"stack"+this.stackSlot},flushInline:function(){var a=this.inlineStack;this.inlineStack=[];for(var b=0,c=a.length;c>b;b++){var e=a[b];if(e instanceof d)this.compileStack.push(e);else{var f=this.incrStack();this.pushSource([f," = ",e,";"]),this.compileStack.push(f)}}},isInline:function(){return this.inlineStack.length},popStack:function(a){var b=this.isInline(),c=(b?this.inlineStack:this.compileStack).pop();if(!a&&c instanceof d)return c.value;if(!b){if(!this.stackSlot)throw new j["default"]("Invalid stack pop");this.stackSlot--}return c},topStack:function(){var a=this.isInline()?this.inlineStack:this.compileStack,b=a[a.length-1];return b instanceof d?b.value:b},contextName:function(a){return this.useDepths&&a?"depths["+a+"]":"depth"+a},quotedString:function(a){return this.source.quotedString(a)},objectLiteral:function(a){return this.source.objectLiteral(a)},aliasable:function(a){var b=this.aliases[a];return b?(b.referenceCount++,b):(b=this.aliases[a]=this.source.wrap(a),b.aliasable=!0,b.referenceCount=1,b)},setupHelper:function(a,b,c){var d=[],e=this.setupHelperArgs(b,a,d,c),f=this.nameLookup("helpers",b,"helper"),g=this.aliasable(this.contextName(0)+" != null ? "+this.contextName(0)+" : {}");return{params:d,paramsInit:e,name:f,callParams:[g].concat(d)}},setupParams:function(a,b,c){var d={},e=[],f=[],g=[],h=!c,i=void 0;h&&(c=[]),d.name=this.quotedString(a),d.hash=this.popStack(),this.trackIds&&(d.hashIds=this.popStack()),this.stringParams&&(d.hashTypes=this.popStack(),d.hashContexts=this.popStack());var j=this.popStack(),k=this.popStack();(k||j)&&(d.fn=k||"container.noop",d.inverse=j||"container.noop");for(var l=b;l--;)i=this.popStack(),c[l]=i,this.trackIds&&(g[l]=this.popStack()),this.stringParams&&(f[l]=this.popStack(),e[l]=this.popStack());return h&&(d.args=this.source.generateArray(c)),this.trackIds&&(d.ids=this.source.generateArray(g)),this.stringParams&&(d.types=this.source.generateArray(f),d.contexts=this.source.generateArray(e)),this.options.data&&(d.data="data"),this.useBlockParams&&(d.blockParams="blockParams"),d},setupHelperArgs:function(a,b,c,d){var e=this.setupParams(a,b,c);return e=this.objectLiteral(e),d?(this.useRegister("options"),c.push("options"),["options=",e]):c?(c.push(e),""):e}},function(){for(var a="break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof abstract enum int short boolean export interface static byte extends long super char final native synchronized class float package throws const goto private transient debugger implements protected volatile double import public let yield await null true false".split(" "),b=e.RESERVED_WORDS={},c=0,d=a.length;d>c;c++)b[a[c]]=!0}(),e.isValidJavaScriptVariableName=function(a){return!e.RESERVED_WORDS[a]&&/^[a-zA-Z_$][0-9a-zA-Z_$]*$/.test(a)},b["default"]=e,a.exports=b["default"]},function(a,b,c){"use strict";function d(a,b,c){if(f.isArray(a)){for(var d=[],e=0,g=a.length;g>e;e++)d.push(b.wrap(a[e],c));return d}return"boolean"==typeof a||"number"==typeof a?a+"":a}function e(a){this.srcFile=a,this.source=[]}b.__esModule=!0;var f=c(5),g=void 0;try{}catch(h){}g||(g=function(a,b,c,d){this.src="",d&&this.add(d)},g.prototype={add:function(a){f.isArray(a)&&(a=a.join("")),this.src+=a},prepend:function(a){f.isArray(a)&&(a=a.join("")),this.src=a+this.src},toStringWithSourceMap:function(){return{code:this.toString()}},toString:function(){return this.src}}),e.prototype={isEmpty:function(){return!this.source.length},prepend:function(a,b){this.source.unshift(this.wrap(a,b))},push:function(a,b){this.source.push(this.wrap(a,b))},merge:function(){var a=this.empty();return this.each(function(b){a.add(["  ",b,"\n"])}),a},each:function(a){for(var b=0,c=this.source.length;c>b;b++)a(this.source[b])},empty:function(){var a=this.currentLocation||{start:{}};return new g(a.start.line,a.start.column,this.srcFile)},wrap:function(a){var b=arguments.length<=1||void 0===arguments[1]?this.currentLocation||{start:{}}:arguments[1];return a instanceof g?a:(a=d(a,this,b),new g(b.start.line,b.start.column,this.srcFile,a))},functionCall:function(a,b,c){return c=this.generateList(c),this.wrap([a,b?"."+b+"(":"(",c,")"])},quotedString:function(a){return'"'+(a+"").replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g,"\\n").replace(/\r/g,"\\r").replace(/\u2028/g,"\\u2028").replace(/\u2029/g,"\\u2029")+'"'},objectLiteral:function(a){var b=[];for(var c in a)if(a.hasOwnProperty(c)){var e=d(a[c],this);"undefined"!==e&&b.push([this.quotedString(c),":",e])}var f=this.generateList(b);return f.prepend("{"),f.add("}"),f},generateList:function(a){for(var b=this.empty(),c=0,e=a.length;e>c;c++)c&&b.add(","),b.add(d(a[c],this));return b},generateArray:function(a){var b=this.generateList(a);return b.prepend("["),b.add("]"),b}},b["default"]=e,a.exports=b["default"]}])});
 
 /***/ },
-/* 7 */
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ function(module, exports) {
+
+	class StatsSearch {
+	  constructor(data) {
+	    this.data = data
+	  }
+	
+	  stateByName(name) {
+	    return this.data.filter((item) => {
+	      return item.state === name
+	    })
+	  }
+	}
+	
+	module.exports = StatsSearch
+
+/***/ },
+/* 10 */
 /***/ function(module, exports) {
 
 	class MapClassHandler {
@@ -17055,23 +16976,105 @@
 	module.exports = MapClassHandler
 
 /***/ },
-/* 8 */,
-/* 9 */
+/* 11 */
 /***/ function(module, exports) {
 
-	class StatsSearch {
-	  constructor(data) {
-	    this.data = data
+	class MapEvents {
+	
+	  constructor({observers, classes, statsSearch}) {
+	    this.observers = observers
+	    this.classes = classes
+	    this.statsSearch = statsSearch
 	  }
 	
-	  stateByName(name) {
-	    return this.data.filter((item) => {
-	      return item.state === name
-	    })
+	  notifyObservers(matched) {
+	    for(const observer of this.observers){
+	      observer.notify(matched);
+	    }
+	  }
+	
+	  findSelected(map) {
+	    const selected = map.svg.selectAll(".active")._groups
+	    const matched = this.statsSearch.stateByName(selected[0][0].getAttribute("data-name"))
+	    return matched[0]
+	  }
+	
+	  click(clicked, map) {
+	    this.classes.clear(map)
+	    this.classes.makeActive(map, clicked)
+	
+	    const matched = this.findSelected(map)
+	    this.classes.setClassByVotes({map, clicked, matched})
+	
+	    this.notifyObservers(matched)
 	  }
 	}
 	
-	module.exports = StatsSearch
+	module.exports = MapEvents
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const d3 = __webpack_require__(2)
+	
+	class Map {
+	  
+	  constructor({width, height, scale, events}) {
+	    this.width = width
+	    this.height = height
+	    this.scale = scale
+	    this.events = events
+	
+	    this.projection = this.createProjection()
+	    this.path = this.createPath()
+	    this.svg = this.createSVG()
+	    this.addData()
+	  }
+	
+	  createPath() {
+	    return d3.geoPath().projection(this.projection)
+	  }
+	
+	  createProjection() {
+	    return d3.geoAlbersUsa()
+	    .translate([this.width/2, this.height/2])
+	    .scale([this.scale])
+	  }
+	
+	  createSVG() {
+	    return d3.select("#map")
+	    .append("svg")
+	    .attr("width", this.width)
+	    .attr("height", this.height)
+	    .attr("id", "states")
+	  }
+	
+	  addData() {
+	    //weird, this has to be in the build folder - sad
+	    d3.json("./data/us-states.json", function(json) {
+	      this.svg.selectAll("path")
+	      .data(json.features)
+	      .enter()
+	      .append("path")
+	      .attr("d", this.path)
+	      .attr("data-name", function(d) {
+	        return d.properties.name
+	      })
+	      .attr("data-name", function(d) {
+	        return d.properties.name
+	      })
+	      .on("click", this.handleClick.bind(this))
+	    }.bind(this))
+	  }
+	
+	  handleClick(clicked) {
+	    this.events.click(clicked, this)
+	  }
+	
+	}
+	
+	module.exports = Map
 
 /***/ }
 /******/ ]);

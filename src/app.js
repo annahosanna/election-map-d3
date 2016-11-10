@@ -1,7 +1,7 @@
-const Map = require('./map')
-const MapEvents = require('./map_events')
+const Map = require('./map/map')
+const MapEvents = require('./map/events')
 const InfoView = require('./info_view')
-const MapClassHandler = require('./map_class_handler')
+const MapClassHandler = require('./map/class_handler')
 const StatsSearch = require('./stats_search')
 const election_data = require('./data/election-data')
 
