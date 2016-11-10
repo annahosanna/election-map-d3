@@ -1,4 +1,4 @@
-let data = [
+const data = [
   {
     "state": "Alabama",
     "population": 4858979,
@@ -408,3 +408,5 @@ let data = [
     "other_votes": 18545
   }
 ]
+
+module.exports = data

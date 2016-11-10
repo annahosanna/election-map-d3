@@ -1,4 +1,5 @@
 const d3 = require('d3')
+const election_data = require('./data/election-data')
 
 class Map {
   constructor({width, height, scale, observers}) {
@@ -32,8 +33,8 @@ class Map {
   }
 
   addData() {
-    d3.json("/data/us-states.json", function(json) {
-
+    //weird, this has to be in the build folder - gross
+    d3.json("./data/us-states.json", function(json) {
       this.svg.selectAll("path")
       .data(json.features)
       .enter()
@@ -80,7 +81,7 @@ class Map {
   }
 
   lookup(name) {
-    return data.filter((item) => {
+    return election_data.filter((item) => {
       return item.state === name
     })
   }
