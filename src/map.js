@@ -1,12 +1,11 @@
 const d3 = require('d3')
-const election_data = require('./data/election-data')
 
 class Map {
-  constructor({width, height, scale, observers}) {
+  constructor({width, height, scale, events}) {
     this.width = width
     this.height = height
     this.scale = scale
-    this.observers = observers;
+    this.events = events
 
     this.projection = this.createProjection()
     this.path = this.createPath()
@@ -33,7 +32,7 @@ class Map {
   }
 
   addData() {
-    //weird, this has to be in the build folder - gross
+    //weird, this has to be in the build folder - sad
     d3.json("./data/us-states.json", function(json) {
       this.svg.selectAll("path")
       .data(json.features)
@@ -46,45 +45,14 @@ class Map {
       .attr("data-name", function(d) {
         return d.properties.name
       })
-      .on("click", this.setActive.bind(this))
+      .on("click", this.handleClick.bind(this))
     }.bind(this))
   }
 
-  notifyObservers(matched) {
-    for(const observer of this.observers){
-      observer.notify(matched);
-    }
+  handleClick(clicked) {
+    this.events.click(clicked, this)
   }
 
-  setActive(clicked) {
-    this.svg.selectAll("path")
-    .attr('class','')
-
-    this.svg.selectAll("path")
-    .classed("active", (polygon) => { return polygon === clicked; })
-
-    const selected = this.svg.selectAll(".active")._groups
-    const matched = this.lookup(selected[0][0].getAttribute("data-name"))[0]
-
-    const selectedClass = this.getClass(matched)
-
-    this.svg.selectAll("path")
-    .classed(selectedClass, (polygon) => { return polygon === clicked })
-
-    this.notifyObservers(matched)
-  }
-
-  getClass(matched) {
-    const republican = matched.republican_votes
-    const democratic = matched.democratic_votes
-    return republican > democratic ? "republican" : "democratic"
-  }
-
-  lookup(name) {
-    return election_data.filter((item) => {
-      return item.state === name
-    })
-  }
 }
 
 module.exports = Map
