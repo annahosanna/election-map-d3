@@ -48,12 +48,17 @@
 	const MapEvents = __webpack_require__(3)
 	const InfoView = __webpack_require__(5)
 	const MapClassHandler = __webpack_require__(7)
+	const StatsSearch = __webpack_require__(9)
+	const election_data = __webpack_require__(4)
+	
 	window.onload = function() {
+	
+	  const statsSearch = new StatsSearch(election_data)
 	  const infoView = new InfoView()
 	
 	  const observers = [infoView]
 	  const classes = new MapClassHandler
-	  const mapEvents = new MapEvents({observers, classes})
+	  const mapEvents = new MapEvents({observers, classes, statsSearch})
 	  const map = new Map({width: 800, height: 500, scale: 1000, events: mapEvents})
 	
 	}
@@ -16513,15 +16518,14 @@
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	const election_data = __webpack_require__(4)
-	
 	class MapEvents {
 	
-	  constructor({observers, classes}) {
+	  constructor({observers, classes, statsSearch}) {
 	    this.observers = observers
 	    this.classes = classes
+	    this.statsSearch = statsSearch
 	  }
 	
 	  notifyObservers(matched) {
@@ -16532,7 +16536,7 @@
 	
 	  findSelected(map) {
 	    const selected = map.svg.selectAll(".active")._groups
-	    const matched = this.lookup(selected[0][0].getAttribute("data-name"))
+	    const matched = this.statsSearch.stateByName(selected[0][0].getAttribute("data-name"))
 	    return matched[0]
 	  }
 	
@@ -16541,16 +16545,9 @@
 	    this.classes.makeActive(map, clicked)
 	
 	    const matched = this.findSelected(map)
-	
 	    this.classes.setClassByVotes({map, clicked, matched})
 	
 	    this.notifyObservers(matched)
-	  }
-	
-	  lookup(name) {
-	    return election_data.filter((item) => {
-	      return item.state === name
-	    })
 	  }
 	}
 	
@@ -17056,6 +17053,25 @@
 	}
 	
 	module.exports = MapClassHandler
+
+/***/ },
+/* 8 */,
+/* 9 */
+/***/ function(module, exports) {
+
+	class StatsSearch {
+	  constructor(data) {
+	    this.data = data
+	  }
+	
+	  stateByName(name) {
+	    return this.data.filter((item) => {
+	      return item.state === name
+	    })
+	  }
+	}
+	
+	module.exports = StatsSearch
 
 /***/ }
 /******/ ]);
