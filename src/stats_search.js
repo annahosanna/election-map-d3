@@ -4,7 +4,9 @@ class StatsSearch {
   }
 
   stateByName(name) {
-    return this.data[name]
+    let matched = this.data[name]
+    matched.state = name
+    return matched
   }
 }
 
