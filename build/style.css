@@ -50,6 +50,14 @@ h3 {
   color: blue;
 }
 
+.republican.active {
+  fill: darkred;
+}
+
+.democratic.active {
+  fill: midnightblue;
+}
+
 #ec-votes {
     border-collapse: collapse;
     width: 100%;

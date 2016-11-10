@@ -19,8 +19,8 @@ class MapEvents {
   // }
 
   click(clicked, map) {
-    //this.classes.reset(map)
-    //this.classes.makeActive(map, clicked)
+    this.classes.reset(map, this.statsSearch)
+    this.classes.makeActive(map, clicked)
 
     const matched = this.statsSearch.stateByName(clicked.properties.name)
     //this.classes.setClassByVotes({map, clicked, matched})
