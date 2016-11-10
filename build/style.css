@@ -49,3 +49,7 @@ h3 {
   fill: blue;
   color: blue;
 }
+
+#ec-votes {
+ table-layout: fixed;
+}

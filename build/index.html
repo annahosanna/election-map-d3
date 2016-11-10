@@ -23,10 +23,33 @@
       <ul>
         <li><h3>{{state}}</h3></li>
         <li>Population: {{population}}</li>
-        <li>Electoral College Votes: {{electoral_college_votes}}</li>
         <li>Democratic votes: {{democratic_votes}}</li>
         <li>Republican votes: {{republican_votes}}</li>
         <li>Other votes: {{other_votes}}</li>
+        <li>
+          <table id="ec-votes">
+            <tr>
+              <th>Type<th>
+              <th>EC Votes<th>
+              <th>Population Adjusted EC Votes<th>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td>{{electoral_college_votes}}</td>
+              <td>{{population_adjusted_electoral_college_votes}}</td>
+            </tr>
+            <tr>
+              <td>Democratic</td>
+              <td>{{democratic_electoral_college_votes}}</td>
+              <td>{{adjusted_democratic_electoral_college_votes}}</td>
+            </tr>
+            <tr>
+              <td>Republican</td>
+              <td>{{republican_electoral_college_votes}}</td>
+              <td>{{adjusted_republican_electoral_college_votes}}</td>
+            </tr>
+          </table>
+        </li>
       <ul>
     </script>
   </body>
