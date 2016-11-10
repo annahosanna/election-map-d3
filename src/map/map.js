@@ -41,8 +41,7 @@ class Map {
       .enter()
       .append("path")
       .attr('class', (d) => {
-        const matched = this.statsSearch.stateByName(d.properties.name)
-        return this.classes.classByVotes(matched)
+        return this.classes.classForState(d, this.statsSearch)
       })
       .style("stroke", "#eee")
       .style("stroke-width", "1")

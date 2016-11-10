@@ -2,9 +2,13 @@ class MapClassHandler {
 
   reset(map, statsSearch) {
     map.svg.selectAll("path").attr('class', (d) => {
-      const matched = statsSearch.stateByName(d.properties.name)
-      return this.classByVotes(matched)
+      return this.classForState(d, statsSearch)
     })
+  }
+
+  classForState(state, statsSearch) {
+    const matched = statsSearch.stateByName(state.properties.name)
+    return this.classByVotes(matched)
   }
 
   makeActive(map, clicked) {
