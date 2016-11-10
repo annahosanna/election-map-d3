@@ -1,23 +1,25 @@
-const Handlebars = require('handlebars');
+const Handlebars = require('handlebars')
+const d3 = require('d3')
+console.log(d3)
 
 class Map {
   constructor({width, height, scale}) {
-    this.width = width;
-    this.height = height;
-    this.scale = scale;
+    this.width = width
+    this.height = height
+    this.scale = scale
 
-    this.projection = this.createProjection();
-    this.path = this.createPath();
-    this.svg = this.createSVG();
-    this.addData();
+    this.projection = this.createProjection()
+    this.path = this.createPath()
+    this.svg = this.createSVG()
+    this.addData()
   }
 
   createPath() {
-    return d3.geo.path().projection(this.projection);
+    return d3.geoPath().projection(this.projection)
   }
 
   createProjection() {
-    return d3.geo.albersUsa()
+    return d3.geoAlbersUsa()
       .translate([this.width/2, this.height/2])
       .scale([this.scale]);
   }
@@ -44,8 +46,8 @@ class Map {
       .attr("data-name", function(d) {
                       return d.properties.name
                    })
-      .on("click", this.setActive.bind(this));
-    }.bind(this));
+      .on("click", this.setActive.bind(this))
+    }.bind(this))
   }
 
   setActive(clicked) {
@@ -55,13 +57,13 @@ class Map {
     this.svg.selectAll("path")
     .classed("active", (polygon) => { return polygon === clicked; })
 
-    const selected = this.svg.selectAll(".active")
+    const selected = this.svg.selectAll(".active")._groups
     const matched = this.lookup(selected[0][0].getAttribute("data-name"))[0]
 
     const selectedClass = this.getClass(matched)
 
     this.svg.selectAll("path")
-    .classed(selectedClass, (polygon) => { return polygon === clicked; })
+    .classed(selectedClass, (polygon) => { return polygon === clicked })
 
     this.showInfo(matched)
   }
@@ -75,10 +77,10 @@ class Map {
   showInfo(matched) {
     const element = document.querySelector("#info div")
     element.style.visibility = "visible"
-    const source   = document.querySelector("#state-info").innerHTML;
-    const template = Handlebars.compile(source);
-    const html = template(matched);
-    element.innerHTML = html;
+    const source   = document.querySelector("#state-info").innerHTML
+    const template = Handlebars.compile(source)
+    const html = template(matched)
+    element.innerHTML = html
   }
 
   lookup(name) {
