@@ -29,7 +29,7 @@ class Map {
   }
 
   addData() {
-    d3.json("us-states.json", function(json) {
+    d3.json("/data/us-states.json", function(json) {
 
       this.svg.selectAll("path")
       .data(json.features)
