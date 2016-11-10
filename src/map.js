@@ -1,3 +1,5 @@
+const Handlebars = require('handlebars');
+
 class Map {
   constructor({width, height, scale}) {
     this.width = width;

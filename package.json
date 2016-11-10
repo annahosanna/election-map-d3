@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/outragedpinkracoon/election-map-d3/issues"
   },
-  "homepage": "https://github.com/outragedpinkracoon/election-map-d3#readme"
+  "homepage": "https://github.com/outragedpinkracoon/election-map-d3#readme",
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
 }
