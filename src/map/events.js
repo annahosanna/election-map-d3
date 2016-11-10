@@ -12,17 +12,17 @@ class MapEvents {
     }
   }
 
-  findSelected(map) {
-    const selected = map.svg.selectAll(".active")._groups
-    const matched = this.statsSearch.stateByName(selected[0][0].getAttribute("data-name"))
-    return matched[0]
-  }
+  // findSelected(map) {
+  //   const selected = map.svg.selectAll(".active")._groups
+  //   const matched = this.statsSearch.stateByName(selected[0][0].getAttribute("data-name"))
+  //   return matched[0]
+  // }
 
   click(clicked, map) {
     //this.classes.reset(map)
     //this.classes.makeActive(map, clicked)
 
-    const matched = this.findSelected(map)
+    const matched = this.statsSearch.stateByName(clicked.properties.name)
     //this.classes.setClassByVotes({map, clicked, matched})
 
     this.notifyObservers(matched)
