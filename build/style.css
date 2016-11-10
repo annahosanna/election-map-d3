@@ -11,12 +11,7 @@ body {
   justify-content: center;
 }
 
-#map {
-  width: 80%;
-}
-
 #info {
-  width: 20%;
   margin: 0px;
   padding-left: 15px;
 }
