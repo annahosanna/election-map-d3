@@ -39,10 +39,9 @@ class Map {
       .data(json.features)
       .enter()
       .append("path")
+      .style("stroke", "#eee")
+      .style("stroke-width", "1")
       .attr("d", this.path)
-      .attr("data-name", function(d) {
-        return d.properties.name
-      })
       .attr("data-name", function(d) {
         return d.properties.name
       })
