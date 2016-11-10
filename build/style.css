@@ -51,5 +51,9 @@ h3 {
 }
 
 #ec-votes {
- table-layout: fixed;
+ width:100%;
+}
+
+#ec-votes th {
+  text-align: left;
 }
