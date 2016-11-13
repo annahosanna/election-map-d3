@@ -27,27 +27,31 @@
         <li>Republican votes: {{republican_votes}}</li>
         <li>Other votes: {{other_votes}}</li>
         <li>
-          <table id="ec-votes">
+          <table id="ec-votes" class={{class_name}}>
             <caption>Electoral College Votes</caption>
             <tr>
-              <th>Type</th>
-              <th>Normal</th>
-              <th>Population Adjusted</th>
+              <th></th>
+              <th>EC Votes For State</th>
+              <th>Democratic Votes</th>
+              <th>Republican Votes</th>
             </tr>
             <tr>
-              <td>State</td>
+              <td>Actual</td>
               <td>{{electoral_college_votes}}</td>
+              <td class={{voteCheck democratic_electoral_college_votes republican_electoral_college_votes 'democratic'}}>{{democratic_electoral_college_votes}}</td>
+              <td class={{voteCheck republican_electoral_college_votes democratic_electoral_college_votes 'republican'}}>{{republican_electoral_college_votes}}</td>
+            </tr>
+            <tr>
+              <td>Population Adjusted</td>
               <td>{{population_adjusted_electoral_college_votes}}</td>
+              <td class={{voteCheck adjusted_democratic_electoral_college_votes adjusted_republican_electoral_college_votes 'democratic'}}>{{adjusted_democratic_electoral_college_votes}}</td>
+              <td class={{voteCheck adjusted_republican_electoral_college_votes adjusted_democratic_electoral_college_votes 'republican'}}>{{adjusted_republican_electoral_college_votes}}</td>
             </tr>
             <tr>
-              <td>Democratic</td>
-              <td>{{democratic_electoral_college_votes}}</td>
-              <td>{{adjusted_democratic_electoral_college_votes}}</td>
-            </tr>
-            <tr>
-              <td>Republican</td>
-              <td>{{republican_electoral_college_votes}}</td>
-              <td>{{adjusted_republican_electoral_college_votes}}</td>
+              <td>Propotional Representation</td>
+              <td> 1</td>
+              <td> 2</td>
+              <td> 3</td>
             </tr>
           </table>
         </li>

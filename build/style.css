@@ -58,18 +58,24 @@ h3 {
 }
 
 #ec-votes {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#ec-votes .democratic {
+  background-color: blue;
+  color: white;
+}
+
+#ec-votes .republican {
+  background-color: red;
+  color: white;
 }
 
 #ec-votes td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-#ec-votes tr:nth-child(even) {
-    background-color: #dddddd;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 #ec-votes caption {
