@@ -9,55 +9,68 @@
   <script src="/scripts/google_analytics.js"></script>
 </head>
 <body>
-  <h1>U.S. Presidential Election 2016</h1>
+  <h1 class="bordered">U.S. Presidential Election 2016</h1>
   <div id="ec-chart"></div>
-  <h2 class='centered'>Election Results By State</h2>
+  <h2 class='centered bordered'>Election Results By State</h2>
   <div class="flex">
     <div id="info">
       <p>Click on a state to view election data.</p>
       <p>Republican majorities are in <span class="republican">red</span> and democratic majorities are in <span class="democratic">blue</span></p>
       <div></div>
     </div>
-    <div id="map"></div>
+    <div id="map"></div>  
+  </div>
+  <div>
+  <h2 class="bordered centered">What do the different scenarios mean?</h2>
+  <div id="explanation" class="padded">
+    <p>Actual: the actual results of the electoral college, with the candidate who get the most votes in that state getting all of the votes for that state</p>
+    <p>Population: the results of the electoral college adjusted to account for the population distribution in the U.S</p>
+    <p>Proportional: a proportional voting system where the electoral votes per state is awarded proportonately based on the voting result in that state e.g. if a state has 10 EC votes and the proportial vote is 50:50, each nominee gets 5 votes each.</p>
+    </div>
+  </div>
+  <h2 class="bordered"></h2>
+  <div class="padded" id="references">
+   <p>Election results based on <a href="http://www.politico.com/2016-election/results/map/president">http://www.politico.com/2016-election/results/map/president</a></p>
+    <p>Population data from <a href="https://www.census.gov/popest/">https://www.census.gov/popest/</a></p>
   </div>
 
-    <script id="state-info" type="text/x-handlebars-template">
+  <script id="state-info" type="text/x-handlebars-template">
+    <ul>
+      <li><h3>{{state}}</h3></li>
+      <li>Population: {{population}}</li>
+      <li>Democratic votes: {{democratic_votes}}</li>
+      <li>Republican votes: {{republican_votes}}</li>
+      <li>Other votes: {{other_votes}}</li>
+      <li>
+        <table id="ec-votes" class={{class_name}}>
+          <caption>Electoral College Votes</caption>
+          <tr>
+            <th></th>
+            <th>EC Votes For State</th>
+            <th>Democratic Votes</th>
+            <th>Republican Votes</th>
+          </tr>
+          <tr>
+            <td>Actual</td>
+            <td>{{electoral_college_votes}}</td>
+            <td class={{voteCheck democratic_electoral_college_votes republican_electoral_college_votes 'democratic'}}>{{democratic_electoral_college_votes}}</td>
+            <td class={{voteCheck republican_electoral_college_votes democratic_electoral_college_votes 'republican'}}>{{republican_electoral_college_votes}}</td>
+          </tr>
+          <tr>
+            <td>Population Adjusted</td>
+            <td>{{population_adjusted_electoral_college_votes}}</td>
+            <td class={{voteCheck adjusted_democratic_electoral_college_votes adjusted_republican_electoral_college_votes 'democratic'}}>{{adjusted_democratic_electoral_college_votes}}</td>
+            <td class={{voteCheck adjusted_republican_electoral_college_votes adjusted_democratic_electoral_college_votes 'republican'}}>{{adjusted_republican_electoral_college_votes}}</td>
+          </tr>
+          <tr>
+            <td>Propotional Representation</td>
+            <td>{{electoral_college_votes}}</td>
+            <td class="democratic">{{proportional_democratic_votes}}</td>
+            <td class="republican">{{proportional_republican_votes}}</td>
+          </tr>
+        </table>
+      </li>
       <ul>
-        <li><h3>{{state}}</h3></li>
-        <li>Population: {{population}}</li>
-        <li>Democratic votes: {{democratic_votes}}</li>
-        <li>Republican votes: {{republican_votes}}</li>
-        <li>Other votes: {{other_votes}}</li>
-        <li>
-          <table id="ec-votes" class={{class_name}}>
-            <caption>Electoral College Votes</caption>
-            <tr>
-              <th></th>
-              <th>EC Votes For State</th>
-              <th>Democratic Votes</th>
-              <th>Republican Votes</th>
-            </tr>
-            <tr>
-              <td>Actual</td>
-              <td>{{electoral_college_votes}}</td>
-              <td class={{voteCheck democratic_electoral_college_votes republican_electoral_college_votes 'democratic'}}>{{democratic_electoral_college_votes}}</td>
-              <td class={{voteCheck republican_electoral_college_votes democratic_electoral_college_votes 'republican'}}>{{republican_electoral_college_votes}}</td>
-            </tr>
-            <tr>
-              <td>Population Adjusted</td>
-              <td>{{population_adjusted_electoral_college_votes}}</td>
-              <td class={{voteCheck adjusted_democratic_electoral_college_votes adjusted_republican_electoral_college_votes 'democratic'}}>{{adjusted_democratic_electoral_college_votes}}</td>
-              <td class={{voteCheck adjusted_republican_electoral_college_votes adjusted_democratic_electoral_college_votes 'republican'}}>{{adjusted_republican_electoral_college_votes}}</td>
-            </tr>
-            <tr>
-              <td>Propotional Representation</td>
-              <td>{{electoral_college_votes}}</td>
-              <td class="democratic">{{proportional_democratic_votes}}</td>
-              <td class="republican">{{proportional_republican_votes}}</td>
-            </tr>
-          </table>
-        </li>
-      <ul>
-    </script>
-  </body>
-</html>
+      </script>
+    </body>
+    </html>
