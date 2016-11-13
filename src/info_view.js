@@ -4,7 +4,7 @@ class InfoView {
 
   constructor() {
     Handlebars.registerHelper('voteCheck', function (party1, party2, className) {
-        return party1 > party2 ? className : '';
+        return party1 >= party2 ? className : '';
     });
   }
 
