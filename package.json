@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/outragedpinkracoon/election-map-d3#readme",
   "dependencies": {
+    "babel-polyfill": "^6.16.0",
     "d3": "^4.3.0",
     "express": "^4.14.0",
     "handlebars": "^4.0.5",

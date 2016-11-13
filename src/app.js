@@ -5,6 +5,7 @@ const MapClassHandler = require('./map/class_handler')
 const StatsSearch = require('./stats_search')
 const election_data = require('./data/election-data')
 const BarChart = require('./charts/bar_chart')
+require('babel-polyfill');
 
 window.onload = function() {
 
