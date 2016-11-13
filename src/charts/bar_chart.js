@@ -5,7 +5,8 @@ class BarChart {
 
    Highcharts.chart('ec-chart', {
            chart: {
-             type: 'bar'
+             type: 'bar',
+             backgroundColor: 'oldlace',
            },
            colors: ['red', 'grey', 'blue'],
            title: {
