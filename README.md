@@ -6,4 +6,6 @@ A map to show election data from the U.S. presidential election 2016, includes d
 
 In progress! Map really needs made responsive through some sort of black magic wizardry.
 
+Also needs converted to React. It's gotten out of hand.
+
 ![Screenshot](screenshot.png?raw=true "Screenshot")
