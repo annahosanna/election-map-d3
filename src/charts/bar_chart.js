@@ -1,7 +1,7 @@
 var Highcharts = require('highcharts');
 
 class BarChart {
-  constructor(data, element) {
+  constructor() {
 
    Highcharts.chart('ec-chart', {
            chart: {
